@@ -1,19 +1,27 @@
-import {Text as RNText, StyleSheet, TextProps} from 'react-native';
+import {Text as RNText, TextProps} from 'react-native';
 import React from 'react';
+import colors from '../styles/colors';
 
 type TextPropsExtended = {
   weight?: 'Regular' | 'Bold' | 'ExtraBold';
+  size?: number;
+  color?: string;
 } & TextProps;
 
 const Text = ({
   weight = 'Regular',
+  size = 16,
+  color = colors.black,
   children,
   style,
   ...textProps
 }: TextPropsExtended) => {
   return (
     <RNText
-      style={[styles.text, {fontFamily: `NanumGothic-${weight}`}, style]}
+      style={[
+        {fontFamily: `NanumGothic-${weight}`, fontSize: size, color: color},
+        style,
+      ]}
       {...textProps}>
       {children}
     </RNText>
@@ -21,10 +29,3 @@ const Text = ({
 };
 
 export default Text;
-
-const styles = StyleSheet.create({
-  text: {
-    fontSize: 16,
-    color: '#000',
-  },
-});
