@@ -48,10 +48,12 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderRadius: 12,
     paddingHorizontal: 8,
+    paddingVertical: 2,
     position: 'relative',
   },
   input: {
     flex: 1,
+    fontFamily: 'NanumGothic-Regular',
     fontSize: 16,
     paddingRight: 30,
   },
