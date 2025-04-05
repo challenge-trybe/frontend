@@ -11,17 +11,17 @@ import colors from '../styles/colors';
 import Text from './Text';
 
 type AlertProps = {
-  visiable: boolean;
+  visible: boolean;
   onClose: () => void;
   title?: string;
   message: string;
 };
 
-const Alert = ({visiable, onClose, title, message}: AlertProps) => {
+const Alert = ({visible, onClose, title, message}: AlertProps) => {
   return (
     <Modal
       transparent
-      visible={visiable}
+      visible={visible}
       animationType="fade"
       statusBarTranslucent={true}>
       <TouchableWithoutFeedback onPress={onClose}>

@@ -5,7 +5,7 @@ import Icon from './Icon';
 
 type SearchBarProps = {
   value: string;
-  onChanegeText: (text: string) => void;
+  onChangeText: (text: string) => void;
   onSubmit?: () => void;
   onClear?: () => void;
   placeholder?: string;
@@ -13,7 +13,7 @@ type SearchBarProps = {
 
 const SearchBar = ({
   value,
-  onChanegeText,
+  onChangeText,
   onSubmit,
   onClear,
   placeholder = '검색어를 입력하세요.',
@@ -25,7 +25,7 @@ const SearchBar = ({
         value={value}
         placeholder={placeholder}
         placeholderTextColor={colors.gray500}
-        onChangeText={onChanegeText}
+        onChangeText={onChangeText}
         onSubmitEditing={onSubmit}
         returnKeyType="search"
       />
