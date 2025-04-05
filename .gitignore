@@ -105,3 +105,6 @@ android/
 
 # Test
 __tests__/
+
+# fonts
+src/assets/fonts/
