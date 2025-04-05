@@ -1,8 +1,11 @@
 const colors = {
   white: '#FFFFFF',
   black: '#000000',
-  gray100: '#F0F0F0',
-  gray200: '#C9C9C9',
+  gray100: '#F4F4F4',
+  gray150: '#EBEBEB',
+  gray200: '#DEDEDE',
+  gray300: '#C9C9C9',
+  gray500: '#9B9B9B',
   gray600: '#606060',
   blue100: '#F4F6FF',
   blue300: '#8291DE',

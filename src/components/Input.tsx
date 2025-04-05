@@ -98,7 +98,7 @@ const styles = StyleSheet.create({
     borderRadius: 6,
   },
   inputDisabled: {
-    backgroundColor: colors.gray100,
+    backgroundColor: colors.gray150,
     color: colors.gray600,
   },
   helperText: {
