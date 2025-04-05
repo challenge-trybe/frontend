@@ -7,12 +7,20 @@ import {
   View,
 } from 'react-native';
 import React, {useRef} from 'react';
+import colors from '../styles/colors';
 
 type InputProps = TextInputProps & {
-  errorMessage?: string;
+  helperText?: string;
+  helperTextColor?: string;
 };
 
-const Input = ({errorMessage, editable, style, ...props}: InputProps) => {
+const Input = ({
+  helperText,
+  helperTextColor,
+  editable,
+  style,
+  ...props
+}: InputProps) => {
   const animValue = useRef(new Animated.Value(0)).current;
 
   const handleFocus = () => {
@@ -34,7 +42,7 @@ const Input = ({errorMessage, editable, style, ...props}: InputProps) => {
   const animatedStyle = {
     backgroundColor: animValue.interpolate({
       inputRange: [0, 1],
-      outputRange: ['#fff', '#F4F6FF'],
+      outputRange: [colors.white, colors.blue100],
     }),
   };
 
@@ -53,7 +61,15 @@ const Input = ({errorMessage, editable, style, ...props}: InputProps) => {
           editable={editable}
         />
       </Animated.View>
-      {errorMessage && <Text style={styles.errorMessage}>{errorMessage}</Text>}
+      {helperText && (
+        <Text
+          style={[
+            styles.helperText,
+            helperTextColor && {color: helperTextColor},
+          ]}>
+          {helperText}
+        </Text>
+      )}
     </View>
   );
 };
@@ -69,7 +85,7 @@ const styles = StyleSheet.create({
   animatedInputWrapper: {
     borderRadius: 8,
     borderWidth: 1,
-    borderColor: '#c9c9c9',
+    borderColor: colors.gray200,
   },
   input: {
     fontFamily: 'NanumGothic-Regular',
@@ -78,15 +94,15 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
     borderStyle: 'solid',
     borderWidth: 1,
-    borderColor: '#c9c9c9',
+    borderColor: colors.gray200,
     borderRadius: 6,
   },
   inputDisabled: {
-    backgroundColor: '#f0f0f0',
-    color: '#606060',
+    backgroundColor: colors.gray100,
+    color: colors.gray600,
   },
-  errorMessage: {
-    color: 'red',
+  helperText: {
+    color: colors.red500,
     fontSize: 14,
     paddingLeft: 10,
   },

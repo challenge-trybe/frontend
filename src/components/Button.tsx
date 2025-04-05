@@ -1,5 +1,6 @@
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import React, {ComponentProps, ReactNode} from 'react';
+import colors from '../styles/colors';
 
 type ButtonProps = ComponentProps<typeof TouchableOpacity> & {
   children: ReactNode;
@@ -21,14 +22,14 @@ export default Button;
 const styles = StyleSheet.create({
   button: {
     opacity: 0.8,
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     paddingHorizontal: 16,
     paddingVertical: 8,
     alignItems: 'center',
     justifyContent: 'center',
     alignSelf: 'flex-start',
     borderWidth: 1,
-    borderColor: '#c9c9c9',
+    borderColor: colors.gray200,
     borderRadius: 8,
   },
 });
