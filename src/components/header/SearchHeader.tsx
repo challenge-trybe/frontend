@@ -5,13 +5,13 @@ import Icon from '../Icon';
 import colors from '../../styles/colors';
 
 interface Props {
-  placeHolder?: string;
+  placeholder?: string;
   onPressSearch: () => void;
   backgroundColor?: string;
 }
 
 const SearchHeader = ({
-  placeHolder,
+  placeholder,
   onPressSearch,
   backgroundColor = colors.white,
 }: Props) => {
@@ -29,7 +29,7 @@ const SearchHeader = ({
           onChangeText={setKeyword}
           onSubmit={onPressSearch}
           onClear={() => setKeyword('')}
-          placeholder={placeHolder}
+          placeholder={placeholder}
         />
       </View>
       <Pressable
