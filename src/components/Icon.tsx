@@ -1,13 +1,13 @@
 import {StyleSheet, View} from 'react-native';
 import React, {ComponentProps} from 'react';
-import AntIcon from 'react-native-vector-icons/AntDesign';
+import Ionicon from 'react-native-vector-icons/Ionicons';
 
-type IconProps = ComponentProps<typeof AntIcon>;
+type IconProps = ComponentProps<typeof Ionicon>;
 
 const Icon = ({...props}: IconProps) => {
   return (
     <View style={styles.container}>
-      <AntIcon {...props} />
+      <Ionicon {...props} />
     </View>
   );
 };
