@@ -31,7 +31,7 @@ const SearchBar = ({
       />
       {!!value && (
         <Pressable style={styles.clearButton} onPress={onClear}>
-          <Icon name="closecircle" size={18} color={colors.gray300} />
+          <Icon name="close-circle" size={20} color={colors.gray300} />
         </Pressable>
       )}
     </View>
