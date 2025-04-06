@@ -4,7 +4,7 @@ import React from 'react';
 const CommunityScreen = () => {
   return (
     <View>
-      <Text>ChallengeScreen</Text>
+      <Text>CommunityScreen</Text>
     </View>
   );
 };
