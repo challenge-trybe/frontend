@@ -76,11 +76,12 @@ const styles = StyleSheet.create({
     height: 90,
   },
   tabBarLabel: {
-    fontFamily: 'NanumGothic-Regular',
+    fontFamily: 'NotoSansKR-Regular',
     fontSize: 12,
   },
   tabBarIcon: {
-    width: 40,
-    height: 40,
+    marginTop: 8,
+    width: 24,
+    height: 24,
   },
 });
