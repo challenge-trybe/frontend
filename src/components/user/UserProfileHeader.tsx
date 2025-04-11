@@ -12,6 +12,10 @@ type Props = {
 };
 
 const UserProfileHeader = ({user, isMe = false}: Props) => {
+  const handleUpdateButtonPress = () => {
+    // TODO: 유저 정보 수정 페이지로 이동
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -20,7 +24,7 @@ const UserProfileHeader = ({user, isMe = false}: Props) => {
           <Text style={styles.userId}>@{user.userId}</Text>
         </View>
         {isMe && (
-          <Button style={styles.updateButton}>
+          <Button style={styles.updateButton} onPress={handleUpdateButtonPress}>
             <Text style={styles.updateButtonText}>수정하기</Text>
           </Button>
         )}
