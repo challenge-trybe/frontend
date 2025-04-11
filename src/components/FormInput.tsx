@@ -1,20 +1,15 @@
-import {
-  Animated,
-  StyleSheet,
-  Text,
-  TextInput,
-  TextInputProps,
-  View,
-} from 'react-native';
+import {Animated, StyleSheet, TextInputProps, View} from 'react-native';
 import React, {useRef} from 'react';
 import colors from '../styles/colors';
+import TextInput from './TextInput';
+import Text from './Text';
 
 type InputProps = TextInputProps & {
   helperText?: string;
   helperTextColor?: string;
 };
 
-const Input = ({
+const FormInput = ({
   helperText,
   helperTextColor,
   editable,
@@ -74,7 +69,7 @@ const Input = ({
   );
 };
 
-export default Input;
+export default FormInput;
 
 const styles = StyleSheet.create({
   container: {
