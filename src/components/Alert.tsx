@@ -30,15 +30,13 @@ const Alert = ({visible, onClose, title, message}: AlertProps) => {
             <View style={styles.alertBox}>
               {title && (
                 <>
-                  <Text weight="Bold" size={20} style={styles.title}>
-                    {title}
-                  </Text>
+                  <Text style={styles.title}>{title}</Text>
                   <View style={styles.divider} />
                 </>
               )}
               <Text style={styles.message}>{message}</Text>
               <Pressable onPress={onClose} style={styles.button}>
-                <Text color={colors.blue500}>확인</Text>
+                <Text style={styles.buttonText}>확인</Text>
               </Pressable>
             </View>
           </TouchableWithoutFeedback>
@@ -79,6 +77,8 @@ const styles = StyleSheet.create({
   title: {
     paddingTop: 6,
     paddingBottom: 8,
+    fontSize: 20,
+    fontWeight: 'bold',
   },
   message: {
     width: '80%',
@@ -92,5 +92,9 @@ const styles = StyleSheet.create({
     paddingVertical: 12,
     borderBottomLeftRadius: 16,
     borderBottomRightRadius: 16,
+  },
+  buttonText: {
+    fontSize: 16,
+    color: colors.blue500,
   },
 });

@@ -19,7 +19,7 @@ const BasicHeader = ({
       <Pressable onPress={onPressBack} style={styles.backButton}>
         <Icon name="arrow-back" size={24} color={colors.gray600} />
       </Pressable>
-      {title && <Text>{title}</Text>}
+      {title && <Text style={styles.title}>{title}</Text>}
       <View style={styles.space} />
     </View>
   );
@@ -40,6 +40,10 @@ const styles = StyleSheet.create({
   backButton: {
     alignItems: 'center',
     width: 50,
+  },
+  title: {
+    fontSize: 18,
+    color: colors.gray600,
   },
   space: {
     width: 50,
