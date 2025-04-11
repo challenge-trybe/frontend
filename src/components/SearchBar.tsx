@@ -1,7 +1,8 @@
-import {Pressable, StyleSheet, TextInput, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
 import colors from '../styles/colors';
 import Icon from './Icon';
+import TextInput from './TextInput';
 
 type SearchBarProps = {
   value: string;
@@ -53,7 +54,6 @@ const styles = StyleSheet.create({
   },
   input: {
     flex: 1,
-    fontFamily: 'NanumGothic-Regular',
     fontSize: 16,
     paddingRight: 30,
   },
