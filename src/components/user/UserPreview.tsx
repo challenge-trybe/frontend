@@ -1,4 +1,4 @@
-import {StyleSheet, View} from 'react-native';
+import {Alert, Pressable, StyleSheet} from 'react-native';
 import React from 'react';
 import {UserSummary} from '../../types/user';
 import colors from '../../styles/colors';
@@ -7,9 +7,24 @@ import Text from '../Text';
 type Props = {
   user: UserSummary;
   variant?: 'primary' | 'secondary';
+  showUserId?: boolean;
+  clickable?: boolean;
 };
 
-const UserPreview = ({user, variant = 'primary'}: Props) => {
+const UserPreview = ({
+  user,
+  variant = 'primary',
+  showUserId = true,
+  clickable = true,
+}: Props) => {
+  const handleClick = () => {
+    if (!clickable) {
+      return;
+    }
+    // TODO: 유저 상세 페이지로 이동
+    Alert.alert('유저 상세 페이지로 이동');
+  };
+
   const variantContainerStyles = {
     primary: styles.primaryContainer,
     secondary: styles.secondaryContainer,
@@ -24,10 +39,17 @@ const UserPreview = ({user, variant = 'primary'}: Props) => {
   const textStyle = variantTextStyles[variant];
 
   return (
-    <View style={containerStyle}>
+    <Pressable
+      style={({pressed}) => [
+        containerStyle,
+        clickable && pressed && {opacity: 0.8},
+      ]}
+      onPress={handleClick}>
       <Text style={[styles.nickname, textStyle]}>{user.nickname}</Text>
-      <Text style={[styles.userId, textStyle]}>@{user.userId}</Text>
-    </View>
+      {showUserId && (
+        <Text style={[styles.userId, textStyle]}>@{user.userId}</Text>
+      )}
+    </Pressable>
   );
 };
 
@@ -46,7 +68,7 @@ const styles = StyleSheet.create({
     boxShadow: '0 0 4 0 rgba(0, 0, 0, 0.1)',
   },
   primaryContainer: {
-    backgroundColor: colors.white,
+    backgroundColor: colors.blue100,
     borderWidth: 1,
     borderColor: colors.blue300,
   },
