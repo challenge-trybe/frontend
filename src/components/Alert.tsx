@@ -36,7 +36,7 @@ const Alert = ({visible, onClose, title, message}: AlertProps) => {
               )}
               <Text style={styles.message}>{message}</Text>
               <Pressable onPress={onClose} style={styles.button}>
-                <Text>확인</Text>
+                <Text style={styles.buttonText}>확인</Text>
               </Pressable>
             </View>
           </TouchableWithoutFeedback>
