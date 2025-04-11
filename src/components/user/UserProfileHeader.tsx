@@ -4,17 +4,26 @@ import {UserDetail} from '../../types/User';
 import Text from '../Text';
 import colors from '../../styles/colors';
 import UserInfoRow from './UserInfoRow';
+import Button from '../Button';
 
 type Props = {
   user: UserDetail;
+  isMe?: boolean;
 };
 
-const UserProfileHeader = ({user}: Props) => {
+const UserProfileHeader = ({user, isMe = false}: Props) => {
   return (
     <View style={styles.container}>
-      <View style={styles.identityContainer}>
-        <Text style={styles.nickname}>{user.nickname}</Text>
-        <Text style={styles.userId}>@{user.userId}</Text>
+      <View style={styles.header}>
+        <View style={styles.identityContainer}>
+          <Text style={styles.nickname}>{user.nickname}</Text>
+          <Text style={styles.userId}>@{user.userId}</Text>
+        </View>
+        {isMe && (
+          <Button style={styles.updateButton}>
+            <Text style={styles.updateButtonText}>수정하기</Text>
+          </Button>
+        )}
       </View>
       <View style={styles.infoContainer}>
         <UserInfoRow icon="mail-outline" label="이메일" value={user.email} />
@@ -42,6 +51,10 @@ const styles = StyleSheet.create({
     gap: 28,
     padding: 36,
   },
+  header: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   identityContainer: {
     flexDirection: 'row',
     alignItems: 'baseline',
@@ -58,5 +71,10 @@ const styles = StyleSheet.create({
     fontSize: 18,
     color: colors.blue300,
   },
-  updateButton: {},
+  updateButton: {
+    backgroundColor: colors.gray100,
+  },
+  updateButtonText: {
+    color: colors.gray600,
+  },
 });
