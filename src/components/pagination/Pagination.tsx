@@ -5,15 +5,15 @@ import PaginationArrow from './PaginationArrow';
 
 type Props = {
   page: number;
+  setPage: (page: number) => void;
   totalPages: number;
-  onPress: (page: number) => void;
   maxVisiblePages?: number;
 };
 
 const Pagination = ({
   page,
+  setPage,
   totalPages,
-  onPress,
   maxVisiblePages = 7,
 }: Props) => {
   const currentPage = page + 1;
@@ -35,12 +35,12 @@ const Pagination = ({
 
   const goPrev = () => {
     const target = Math.max(1, currentPage - half);
-    onPress(target - 1);
+    setPage(target - 1);
   };
 
   const goNext = () => {
     const target = Math.min(totalPages, currentPage + half);
-    onPress(target - 1);
+    setPage(target - 1);
   };
 
   return (
@@ -52,7 +52,7 @@ const Pagination = ({
             key={index}
             page={item}
             selected={item === currentPage}
-            onPress={() => onPress(item - 1)}
+            onPress={() => setPage(item - 1)}
           />
         ))}
       </View>
