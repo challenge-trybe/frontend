@@ -6,7 +6,7 @@ import Text from '../Text';
 
 type Props = {
   user: UserSummary;
-  variant?: 'primary' | 'secondary';
+  variant?: 'primary' | 'secondary' | 'tertiary';
   showUserId?: boolean;
   clickable?: boolean;
 };
@@ -28,11 +28,13 @@ const UserPreview = ({
   const variantContainerStyles = {
     primary: styles.primaryContainer,
     secondary: styles.secondaryContainer,
+    tertiary: styles.tertiaryContainer,
   } as const;
 
   const variantTextStyles = {
     primary: styles.primaryText,
     secondary: styles.secondaryText,
+    tertiary: styles.tertiaryText,
   };
 
   const containerStyle = [styles.container, variantContainerStyles[variant]];
@@ -63,7 +65,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 12,
-    paddingVertical: 6,
+    paddingVertical: 4,
     borderRadius: 50,
     boxShadow: '0 0 4 0 rgba(0, 0, 0, 0.1)',
   },
@@ -74,6 +76,11 @@ const styles = StyleSheet.create({
   },
   secondaryContainer: {
     backgroundColor: colors.blue300,
+  },
+  tertiaryContainer: {
+    paddingHorizontal: 0,
+    paddingVertical: 0,
+    boxShadow: 'none',
   },
   nickname: {
     fontSize: 14,
@@ -87,5 +94,8 @@ const styles = StyleSheet.create({
   },
   secondaryText: {
     color: colors.blue100,
+  },
+  tertiaryText: {
+    color: colors.blue600,
   },
 });
