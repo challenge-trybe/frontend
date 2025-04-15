@@ -71,7 +71,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   title: {
-    fontSize: 14,
+    fontSize: 15,
   },
   date: {
     color: colors.gray500,
