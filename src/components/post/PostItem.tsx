@@ -43,7 +43,6 @@ export default PostItem;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: colors.white,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

@@ -28,8 +28,14 @@ const PostList = ({posts, page, setPage, onPressPost}: Props) => {
           <PostItem post={item} onPress={() => onPressPost(item.id)} />
         )}
         ItemSeparatorComponent={divider}
+        ListFooterComponent={
+          <Pagination
+            page={page}
+            setPage={setPage}
+            totalPages={posts.totalPages}
+          />
+        }
       />
-      <Pagination page={page} setPage={setPage} totalPages={posts.totalPages} />
     </View>
   );
 };
@@ -37,5 +43,7 @@ const PostList = ({posts, page, setPage, onPressPost}: Props) => {
 export default PostList;
 
 const styles = StyleSheet.create({
-  container: {},
+  container: {
+    backgroundColor: colors.white,
+  },
 });

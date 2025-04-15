@@ -25,11 +25,13 @@ const CommentList = ({comments, page, setPage}: Props) => {
         keyExtractor={item => item.id.toString()}
         renderItem={({item}) => <CommentItem comment={item} />}
         ItemSeparatorComponent={divider}
-      />
-      <Pagination
-        page={page}
-        setPage={setPage}
-        totalPages={comments.totalPages}
+        ListFooterComponent={
+          <Pagination
+            page={page}
+            setPage={setPage}
+            totalPages={comments.totalPages}
+          />
+        }
       />
     </View>
   );
@@ -41,5 +43,4 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: colors.white,
   },
-  commentContainer: {},
 });
