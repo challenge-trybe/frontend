@@ -14,7 +14,7 @@ const Pagination = ({
   page,
   setPage,
   totalPages,
-  maxVisiblePages = 7,
+  maxVisiblePages = 9,
 }: Props) => {
   const currentPage = page + 1;
   const half = Math.floor(maxVisiblePages / 2);
@@ -45,7 +45,11 @@ const Pagination = ({
 
   return (
     <View style={styles.container}>
-      {currentPage > 1 && <PaginationArrow direction="left" onPress={goPrev} />}
+      <View style={styles.arrow}>
+        {currentPage > 1 && (
+          <PaginationArrow direction="left" onPress={goPrev} />
+        )}
+      </View>
       <View style={styles.itemContainer}>
         {pages.map((item, index) => (
           <PaginationItem
@@ -56,9 +60,11 @@ const Pagination = ({
           />
         ))}
       </View>
-      {currentPage < totalPages && (
-        <PaginationArrow direction="right" onPress={goNext} />
-      )}
+      <View style={styles.arrow}>
+        {currentPage < totalPages && (
+          <PaginationArrow direction="right" onPress={goNext} />
+        )}
+      </View>
     </View>
   );
 };
@@ -77,6 +83,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    gap: 2,
+  },
+  arrow: {
+    width: 20,
+    height: 20,
   },
 });
