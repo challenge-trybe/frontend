@@ -10,7 +10,7 @@ export interface PostDetail {
   writer: UserSummary;
   createdAt: string;
   likeCount: number;
-  //   challengs: ChallengeSummary[];
+  //   challenges: ChallengeSummary[];
 }
 
 export interface PostSummary {
