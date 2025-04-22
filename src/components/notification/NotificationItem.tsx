@@ -24,12 +24,13 @@ const NotificationItem = ({notification}: Props) => {
   return (
     <TouchableOpacity
       style={[styles.container, isRead && styles.readContainer]}
-      activeOpacity={0.7}>
+      activeOpacity={0.7}
+      onPress={handlePress}>
       <View style={styles.header}>
         <Text style={[styles.title, isRead && styles.readText]}>
           {notification.title}
         </Text>
-        <TouchableOpacity activeOpacity={0.7}>
+        <TouchableOpacity activeOpacity={0.7} onPress={handleDelete}>
           <Icon
             name="close-outline"
             size={30}
