@@ -21,15 +21,39 @@ const NotificationItem = ({notification}: Props) => {
 
   const isRead = notification.isRead;
 
+  const getIcon = () => {
+    switch (notification.type) {
+      case 'CHAT':
+        return 'chatbubbles-outline';
+      case 'CHALLENGE':
+        return 'golf-outline';
+      case 'CHALLENGE_PARTICIPATION':
+        return 'mail-open-outline';
+      case 'PROOF':
+        return 'file-tray-outline';
+      case 'PROOF_HISTORY':
+        return 'ribbon-outline';
+      default:
+        return 'notifications-outline';
+    }
+  };
+
   return (
     <TouchableOpacity
       style={[styles.container, isRead && styles.readContainer]}
       activeOpacity={0.7}
       onPress={handlePress}>
       <View style={styles.header}>
-        <Text style={[styles.title, isRead && styles.readText]}>
-          {notification.title}
-        </Text>
+        <View style={styles.iconAndTitle}>
+          <Icon
+            name={getIcon()}
+            size={20}
+            color={isRead ? colors.gray500 : colors.gray600}
+          />
+          <Text style={[styles.title, isRead && styles.readText]}>
+            {notification.title}
+          </Text>
+        </View>
         <TouchableOpacity activeOpacity={0.7} onPress={handleDelete}>
           <Icon
             name="close-outline"
@@ -68,6 +92,11 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
   },
+  iconAndTitle: {
+    flexDirection: 'row',
+    alignItems: 'flex-end',
+    gap: 10,
+  },
   body: {
     flexDirection: 'row',
     justifyContent: 'space-between',
@@ -76,7 +105,7 @@ const styles = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-    fontWeight: 'bold',
+    fontWeight: 600,
     color: colors.black,
   },
   message: {
