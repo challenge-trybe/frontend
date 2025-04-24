@@ -2,12 +2,12 @@ import {Image, StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {ChallengePreview} from '../../types/challenge';
 import Text from '../Text';
-import Icon from '../Icon';
 import colors from '../../styles/colors';
 import {getCategoryColors, getStatusColors} from './challengeColors';
 import Badge from '../common/Badge';
 import Bookmark from '../common/Bookmark';
 import ParticipantInfo from '../common/ParticipantInfo';
+import ChallengeStatusBadge from './ChallengeStatusBadge';
 
 type Props = {
   challenge: ChallengePreview;
@@ -52,16 +52,11 @@ const ChallengeItem = ({challenge, onPress, onPressBookmark}: Props) => {
           {challenge.description}
         </Text>
         <View style={styles.footerContainer}>
-          <Badge
-            backgroundColor={statusColor.secondary}
-            color={statusColor.primary}>
-            <View style={styles.statusContainer}>
-              <Icon name="ellipse" size={10} color={statusColor.primary} />
-              <Text style={[styles.status, {color: statusColor.primary}]}>
-                {challenge.status}
-              </Text>
-            </View>
-          </Badge>
+          <ChallengeStatusBadge
+            primaryColor={statusColor.primary}
+            secondaryColor={statusColor.secondary}
+            status={challenge.status}
+          />
           <ParticipantInfo
             participantCount={challenge.participantCount}
             capacity={challenge.capacity}
@@ -113,14 +108,5 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     gap: 10,
     marginTop: 4,
-  },
-  statusContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    justifyContent: 'center',
-    gap: 2,
-  },
-  status: {
-    fontSize: 12,
   },
 });
