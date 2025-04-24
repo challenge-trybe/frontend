@@ -71,6 +71,7 @@ export default ChallengeItem;
 
 const styles = StyleSheet.create({
   container: {
+    backgroundColor: colors.white,
     flex: 1,
     padding: 14,
     borderRadius: 16,
