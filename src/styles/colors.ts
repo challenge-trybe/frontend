@@ -17,6 +17,8 @@ const colors = {
   red: 'red',
   red500: '#D94A4A',
   red600: '#BB3B3B',
+  tangerine: '#F68B08',
+  burntOrange: '#D07300',
 };
 
 export default colors;
