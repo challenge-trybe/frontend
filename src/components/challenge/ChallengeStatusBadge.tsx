@@ -3,11 +3,12 @@ import React from 'react';
 import Badge from '../common/Badge';
 import Icon from '../Icon';
 import Text from '../Text';
+import {ChallengeStatus} from '../../types/challenge';
 
 type Props = {
   primaryColor: string;
   secondaryColor: string;
-  status: string;
+  status: ChallengeStatus;
 };
 
 const ChallengeStatusBadge = ({
