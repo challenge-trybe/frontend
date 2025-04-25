@@ -2,12 +2,11 @@ import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {ProofSummary} from '../../types/proof';
 import {UserSummary} from '../../types/User';
-import ProofStatusBadge from './ProofStatusBadge';
 import Text from '../Text';
-import FormattedDate from '../common/FormattedDate';
 import Icon from '../Icon';
 import colors from '../../styles/colors';
 import ParticipantsList from '../user/ParticipantsList';
+import ProofHeader from './ProofHeader';
 
 type Props = {
   proof: ProofSummary;
@@ -23,16 +22,7 @@ const ProofCard = ({proof, participants, onPress}: Props) => {
       style={styles.container}
       activeOpacity={opacity}
       onPress={onPress}>
-      <View style={styles.headerContainer}>
-        <View style={styles.statusContainer}>
-          <ProofStatusBadge date={proof.date} />
-        </View>
-        <View style={styles.infoContainer}>
-          <Text style={styles.title}>{proof.round}번째 인증</Text>
-          <FormattedDate type="date" date={proof.date} style={styles.date} />
-        </View>
-      </View>
-
+      <ProofHeader proof={proof} />
       {participants && participants.length > 0 && (
         <View style={styles.footerContainer}>
           <View style={styles.participantsTextContainer}>
@@ -56,26 +46,6 @@ const styles = StyleSheet.create({
     borderRadius: 16,
     borderWidth: 1,
     borderColor: colors.gray300,
-  },
-  headerContainer: {
-    paddingVertical: 24,
-    paddingHorizontal: 20,
-    gap: 8,
-  },
-  statusContainer: {
-    alignItems: 'flex-start',
-  },
-  infoContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  title: {
-    fontSize: 18,
-    fontWeight: '600',
-  },
-  date: {
-    color: colors.gray700,
   },
   footerContainer: {
     backgroundColor: colors.blue100,
