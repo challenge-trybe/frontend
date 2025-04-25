@@ -3,12 +3,12 @@ import {ChallengeCategory, ChallengeStatus} from '../../types/challenge';
 export const challengeColors = {
   statusColors: {
     PENDING: {
-      primary: '#3A7D1C',
-      secondary: '#C8E8BA',
-    },
-    ONGOING: {
       primary: '#3F64A9',
       secondary: '#CED7E6',
+    },
+    ONGOING: {
+      primary: '#3A7D1C',
+      secondary: '#C8E8BA',
     },
     DONE: {
       primary: '#525252',
