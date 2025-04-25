@@ -42,7 +42,7 @@ const ChallengeCard = ({challenge, onPress, onPressGoTo}: Props) => {
         <Text style={styles.title} numberOfLines={1}>
           {challenge.title}
         </Text>
-        <Text style={styles.description} numberOfLines={3}>
+        <Text style={styles.description} numberOfLines={2}>
           {challenge.description}
         </Text>
       </View>
@@ -86,6 +86,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
   },
   description: {
+    height: 40,
     color: colors.gray700,
   },
   buttonContainer: {
