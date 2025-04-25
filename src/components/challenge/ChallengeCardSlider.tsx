@@ -10,14 +10,21 @@ import {ChallengeSummary} from '../../types/challenge';
 import ChallengeCard from './ChallengeCard';
 import Icon from '../Icon';
 import colors from '../../styles/colors';
+import AddChallengeCard from './AddChallengeCard';
 
 type Props = {
   challenges: ChallengeSummary[];
   onPress?: (challengeId: number) => void;
   onPressGoTo?: (challengeId: number) => void;
+  onAddPress?: () => void;
 };
 
-const ChallengeCardSlider = ({challenges, onPress, onPressGoTo}: Props) => {
+const ChallengeCardSlider = ({
+  challenges,
+  onPress,
+  onPressGoTo,
+  onAddPress,
+}: Props) => {
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef<FlatList>(null);
 
@@ -33,11 +40,15 @@ const ChallengeCardSlider = ({challenges, onPress, onPressGoTo}: Props) => {
     flatListRef.current?.scrollToIndex({index, animated: true});
   };
 
+  const extendedChallenges = onAddPress
+    ? [...challenges, {id: -1}]
+    : challenges;
+
   return (
     <View>
       <FlatList
         ref={flatListRef}
-        data={challenges}
+        data={extendedChallenges}
         horizontal
         pagingEnabled
         showsHorizontalScrollIndicator={false}
@@ -45,16 +56,22 @@ const ChallengeCardSlider = ({challenges, onPress, onPressGoTo}: Props) => {
         onMomentumScrollEnd={handleScroll}
         renderItem={({item}) => (
           <View style={styles.cardWrapper}>
-            <ChallengeCard
-              challenge={item}
-              onPress={onPress ? () => onPress(item.id) : undefined}
-              onPressGoTo={onPressGoTo ? () => onPressGoTo(item.id) : undefined}
-            />
+            {item.id === -1 ? (
+              <AddChallengeCard onPress={onAddPress} />
+            ) : (
+              <ChallengeCard
+                challenge={item}
+                onPress={onPress ? () => onPress(item.id) : undefined}
+                onPressGoTo={
+                  onPressGoTo ? () => onPressGoTo(item.id) : undefined
+                }
+              />
+            )}
           </View>
         )}
       />
       <View style={styles.indicatorContainer}>
-        {challenges.map((_, index) => (
+        {extendedChallenges.map((_, index) => (
           <TouchableOpacity
             key={index}
             onPress={() => handleIndicatorPress(index)}>
