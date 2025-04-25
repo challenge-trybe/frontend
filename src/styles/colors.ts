@@ -7,6 +7,7 @@ const colors = {
   gray300: '#C9C9C9',
   gray500: '#9B9B9B',
   gray600: '#606060',
+  gray700: '#505050',
   blue100: '#F4F6FF',
   blue300: '#8291DE',
   blue400: '#6477D3',
@@ -16,6 +17,8 @@ const colors = {
   red: 'red',
   red500: '#D94A4A',
   red600: '#BB3B3B',
+  tangerine: '#F68B08',
+  burntOrange: '#D07300',
 };
 
 export default colors;
