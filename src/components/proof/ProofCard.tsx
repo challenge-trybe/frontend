@@ -1,4 +1,4 @@
-import {FlatList, StyleSheet, TouchableOpacity, View} from 'react-native';
+import {StyleSheet, TouchableOpacity, View} from 'react-native';
 import React from 'react';
 import {ProofSummary} from '../../types/proof';
 import {UserSummary} from '../../types/User';
@@ -7,7 +7,7 @@ import Text from '../Text';
 import FormattedDate from '../common/FormattedDate';
 import Icon from '../Icon';
 import colors from '../../styles/colors';
-import UserPreview from '../user/UserPreview';
+import ParticipantsList from '../user/ParticipantsList';
 
 type Props = {
   proof: ProofSummary;
@@ -41,22 +41,7 @@ const ProofCard = ({proof, participants, onPress}: Props) => {
               {participants?.length}명 참여
             </Text>
           </View>
-          <FlatList
-            style={styles.participants}
-            data={participants}
-            horizontal
-            showsHorizontalScrollIndicator={false}
-            contentContainerStyle={styles.participantsListContainer}
-            keyExtractor={item => item.id.toString()}
-            renderItem={({item}) => (
-              <UserPreview
-                user={item}
-                variant="primary"
-                showUserId={false}
-                clickable={false}
-              />
-            )}
-          />
+          <ParticipantsList participants={participants} />
         </View>
       )}
     </TouchableOpacity>
@@ -109,12 +94,5 @@ const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 18,
     color: colors.gray700,
-  },
-  participants: {
-    paddingVertical: 2,
-    height: 32,
-  },
-  participantsListContainer: {
-    gap: 8,
   },
 });
